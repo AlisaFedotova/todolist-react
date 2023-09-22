@@ -1,30 +1,18 @@
 import './App.css';
 import '@fontsource/roboto';
-import { TextField, Container, Button, Stack, Typography } from '@mui/material';
-import TodoList from './TodoList';
-import StateTabs from './StateTabs';
+import { Container, Button, Stack, Typography } from '@mui/material';
+import TodoList from './components/TodoList';
+import StateTabs from './components/StateTabs';
+import AddTaskField from './components/AddTaskField';
 
 function App() {
-
-
   return (
     <div className="App">
-      <Typography variant="h1" align='center'>
+      <Typography variant="h1" align='center' sx={{ p: 2, pt: 4 }}>
         Todos
       </Typography>
-      <Container maxWidth="md" sx={{ backgroundColor: '#fff' }}>
-        <div className='add-task'>
-          <img alt="add task" onClick={() => { }} />
-          {/* //TODO: add click hendler 
-              //TODO: add search icon
-          */}
-          <TextField
-            id="add-task"
-            label="What needs to be done?"
-            variant="standard"
-            autoFocus={true}
-            fullWidth={true} />
-        </div>
+      <Container maxWidth="md" sx={{ backgroundColor: '#fff', p: 2 }}>
+        <AddTaskField />
         <TodoList />
         <Stack
           direction="row"
