@@ -7,7 +7,7 @@ export default function AddTaskField() {
 
 	return (
 		<Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-			<AddIcon onClick={() => { console.log(taskText)}} sx={{ color: 'action.active', mr: 1, my: 0.5 }} fontSize="medium" />
+			<AddIcon onClick={() => { console.log(taskText); }} sx={{ color: 'action.active', mr: 1, my: 0.5 }} fontSize="medium" />
 			{/* //TODO: add click hendler 
           	*/}
 			<TextField
@@ -16,9 +16,9 @@ export default function AddTaskField() {
 				variant="standard"
 				autoFocus={true}
 				fullWidth={true}
-				defaultValue={taskText} 
-				onChange={(e)=> setTaskText(e.target.value)}
-				/>
+				defaultValue={taskText}
+				onChange={(e) => setTaskText(e.target.value)}
+			/>
 		</Box>
 	);
 }

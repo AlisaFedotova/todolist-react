@@ -10,7 +10,7 @@ export default function StateTabs() {
 	) => {
 		setAlignment(newAlignment);
 	};
-
+	//TODO: add tabs toggling
 	return (
 		<ToggleButtonGroup
 			color="primary"

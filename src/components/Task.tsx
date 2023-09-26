@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Paper, Checkbox, ListItem, ListItemText, ListItemIcon, ListItemButton } from '@mui/material';
+import { Checkbox, ListItem, ListItemText, ListItemIcon, ListItemButton } from '@mui/material';
 
 export default function Task({ task }: { task: { title: string, completed: boolean, id: string } }) {
 	const [checked, setChecked] = React.useState(task.completed);
