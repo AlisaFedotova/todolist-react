@@ -1,5 +1,3 @@
-React.js, Redux, Material UI
-
 # Todo List
 
 [![created by](https://img.shields.io/badge/created%20by-Alisa%20Fedotova-blue.svg?longCache=true&style=flat-square)](https://github.com/AlisaFedotova) ![Size](https://img.shields.io/github/repo-size/AlisaFedotova/todolist-react?color=green&style=flat-square) [![React](https://img.shields.io/badge/React-v18.2.0-gren.svg?longCache=true&style=flat-square)](https://react.dev/) [![Redux](https://img.shields.io/badge/Redux-v1.9.6-gren.svg?longCache=true&style=flat-square)](https://redux.js.org)
