@@ -19,19 +19,31 @@ const initialState: ITaskState = {
 };
 
 export const TaskSlice = createSlice({
-	name: "task",
-	initialState,
-	reducers: {
-	  addTask: (state, action: PayloadAction<{ title: string }>) => {
-		if (action.payload.title.length > 0) {
-		  state.tasks.push({
-			title: action.payload.title,
-			completed: false,
-			id: uuidv4(),
-		  });
-		}
-	  },
-	},
-  });
+  name: "task",
+  initialState,
+  reducers: {
+    addTask: (state, action: PayloadAction<{ title: string }>) => {
+      if (action.payload.title.length > 0) {
+        state.tasks.push({
+          title: action.payload.title,
+          completed: false,
+          id: uuidv4(),
+        });
+      }
+    },
+    deleteTask: (state, action: PayloadAction<{ id: string }>) => {
+      const findResult = state.tasks.find(
+        (item) => item.id === action.payload.id
+      );
+
+      if (findResult) {
+        const task: ITask = findResult;
+        state.tasks.splice(state.tasks.indexOf(task), 1);
+      }
+    },
+    toggleTask: () => {},
+  },
+});
+
 export default TaskSlice.reducer;
-export const { addTask } = TaskSlice.actions;
+export const { addTask, deleteTask } = TaskSlice.actions;
