@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Checkbox, ListItem, ListItemText, ListItemIcon, ListItemButton, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useAppDispatch } from '../store/store';
-import { deleteTask } from '../store/taskSlice';
+import { deleteTask, toggleChecked } from '../store/taskSlice';
 
 
 export default function Task({ task }: { task: { title: string, completed: boolean, id: string } }) {
@@ -12,6 +12,7 @@ export default function Task({ task }: { task: { title: string, completed: boole
 
 	const handleToggle = (id: string) => () => {
 		setChecked(!checked);
+		dispatch(toggleChecked({ id: id }))
 	};
 
 	return (

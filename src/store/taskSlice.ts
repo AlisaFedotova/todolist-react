@@ -41,9 +41,18 @@ export const TaskSlice = createSlice({
         state.tasks.splice(state.tasks.indexOf(task), 1);
       }
     },
-    toggleTask: () => {},
+    toggleChecked: (state, action: PayloadAction<{ id: string }>) => {
+      const findResult = state.tasks.find(
+        (item) => item.id === action.payload.id
+      );
+
+      if (findResult) {
+        const task: ITask = findResult;
+        task.completed = !task.completed;
+      }
+    },
   },
 });
 
 export default TaskSlice.reducer;
-export const { addTask, deleteTask } = TaskSlice.actions;
+export const { addTask, deleteTask, toggleChecked } = TaskSlice.actions;
