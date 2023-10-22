@@ -5,10 +5,21 @@ import TodoList from './components/TodoList';
 import StateTabs from './components/StateTabs';
 import AddTaskField from './components/AddTaskField';
 import { useAppSelector } from './store/store';
+import { ITask } from './store/taskSlice';
+import { useAppDispatch } from './store/store';
+import { deleteTask } from './store/taskSlice';
+import { constants } from 'perf_hooks';
 
 function App() {
   const tasks = useAppSelector(state => state.task.tasks);
-  let completedTasks = tasks.filter(task => task.completed);
+  const completedTasks = tasks.filter(task => task.completed);
+  const dispatch = useAppDispatch();
+  const clearTasks = (tasks: ITask[]) => {
+    for (let i = 0; i < tasks.length; i++) {
+      const task = tasks[i];
+      dispatch(deleteTask({ id: task.id }));
+    }
+  }
 
   return (
     <div className="App">
@@ -25,10 +36,8 @@ function App() {
           justifyContent="space-between"
           alignItems="center">
           <span>{tasks.length - completedTasks.length} items left</span>
-          {/* TODO: add item counting */}
           <StateTabs />
-          <Button variant="text">Clear completed</Button>
-          {/* TODO: add clearing tasks */}
+          <Button variant="text" onClick={() => clearTasks(completedTasks)}>Clear completed</Button>
         </Stack>
       </Container>
     </div>
