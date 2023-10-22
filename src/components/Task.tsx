@@ -6,12 +6,9 @@ import { deleteTask, toggleChecked } from '../store/taskSlice';
 
 
 export default function Task({ task }: { task: { title: string, completed: boolean, id: string } }) {
-	const [checked, setChecked] = React.useState(task.completed);
 	const dispatch = useAppDispatch();
 
-
 	const handleToggle = (id: string) => () => {
-		setChecked(!checked);
 		dispatch(toggleChecked({ id: id }))
 	};
 
@@ -36,7 +33,7 @@ export default function Task({ task }: { task: { title: string, completed: boole
 				<ListItemIcon>
 					<Checkbox
 						edge="start"
-						checked={checked}
+						checked={task.completed}
 						tabIndex={-1}
 						disableRipple
 						inputProps={{ 'aria-labelledby': task.id }}

@@ -8,7 +8,6 @@ import { useAppSelector } from './store/store';
 import { ITask } from './store/taskSlice';
 import { useAppDispatch } from './store/store';
 import { deleteTask } from './store/taskSlice';
-import { constants } from 'perf_hooks';
 
 function App() {
   const tasks = useAppSelector(state => state.task.tasks);
