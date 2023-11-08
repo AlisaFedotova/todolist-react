@@ -14,7 +14,6 @@ export default function Task({ task }: { task: { title: string, completed: boole
 
 	return (
 		<ListItem
-			key={task.id}
 			disablePadding
 			secondaryAction={
 				<IconButton edge="end" aria-label="delete"

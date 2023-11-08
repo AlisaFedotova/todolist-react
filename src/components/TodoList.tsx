@@ -7,23 +7,23 @@ export default function TodoList() {
 	const tasks = useAppSelector(state => state.task.tasks);
 	const tabState: string = useAppSelector(state => state.stateTabs.state);
 
-	const isShow = (task: ITask) => {
+	const taskList = tasks.filter((task: ITask) => {
 		const state: { [key: string]: boolean } = {
 			"all": true,
 			"active": !task.completed,
 			"completed": task.completed,
 		}
 		return state[tabState];
-	}
+	})
 
 	return (
 		<>
 			{
-				tasks.length > 0
+				taskList.length > 0
 					?
 					<List sx={{ py: 2 }}>
-						{tasks.map((task) => (
-							isShow(task) && <Task task={task} />
+						{taskList.map((task) => (
+							<Task task={task} key={task.id} />
 						))}
 					</List>
 					:
