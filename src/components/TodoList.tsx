@@ -16,6 +16,15 @@ export default function TodoList() {
 		return state[tabState];
 	})
 
+	const getPalceholder = () => {
+		const placeholder: { [key: string]: string } = {
+			"all": "Task list is empty",
+			"active": "The list of active tasks is empty",
+			"completed": "The list of completed tasks is empty",
+		}
+		return placeholder[tabState];
+	}
+
 	return (
 		<>
 			{
@@ -28,9 +37,8 @@ export default function TodoList() {
 					</List>
 					:
 					<Typography
-						sx={{ py: 4, color: 'rgba(0, 0, 0, 0.6)', textAlign: 'center' }}>
-						Task list is empty
-					</Typography>
+						sx={{ py: 4, color: 'rgba(0, 0, 0, 0.6)', textAlign: 'center' }}
+						children={getPalceholder()}></Typography>
 			}
 		</>
 	);

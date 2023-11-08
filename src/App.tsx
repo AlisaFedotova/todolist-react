@@ -25,10 +25,12 @@ function App() {
       <Typography variant="h1" align='center' sx={{ p: 2, pt: 4, color: "rgb(30, 32, 34)" }}>
         Todos
       </Typography>
+
       <Container maxWidth="md" sx={{ backgroundColor: '#fff', p: 2 }}>
         <AddTaskField />
         <TodoList />
         <Divider />
+
         <Stack
           sx={{ pt: 2 }}
           direction="row"
