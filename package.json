@@ -2,7 +2,7 @@
   "name": "todolist-react",
   "version": "0.1.0",
   "private": true,
-  "license":"MIT",
+  "license": "MIT",
   "author": {
     "name": "Alisa Fedotova",
     "email": "fedotova.alisav@gmail.com",
@@ -28,19 +28,14 @@
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
     "uuid": "^9.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@types/uuid": "^9.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -55,6 +50,9 @@
     ]
   },
   "devDependencies": {
-    "@types/uuid": "^9.0.4"
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "prettier": "^3.1.1"
   }
 }

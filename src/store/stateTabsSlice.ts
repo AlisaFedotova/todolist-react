@@ -1,8 +1,8 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export const StateTabsSlice = createSlice({
-  name: "stateTabs",
-  initialState: { state: "all" },
+  name: 'stateTabs',
+  initialState: { state: 'all' },
   reducers: {
     setState: (state, action: PayloadAction<{ state: string }>) => {
       state.state = action.payload.state;

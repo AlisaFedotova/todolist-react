@@ -10,19 +10,22 @@ import { useAppDispatch } from './store/store';
 import { deleteTask } from './store/taskSlice';
 
 function App() {
-  const tasks = useAppSelector(state => state.task.tasks);
-  const completedTasks = tasks.filter(task => task.completed);
+  const tasks = useAppSelector((state) => state.task.tasks);
+  const completedTasks = tasks.filter((task) => task.completed);
   const dispatch = useAppDispatch();
   const clearTasks = (tasks: ITask[]) => {
     for (let i = 0; i < tasks.length; i++) {
       const task = tasks[i];
       dispatch(deleteTask({ id: task.id }));
     }
-  }
+  };
 
   return (
     <div className="App">
-      <Typography variant="h1" align='center' sx={{ p: 2, pt: 4, color: "rgb(30, 32, 34)" }}>
+      <Typography
+        variant="h1"
+        align="center"
+        sx={{ p: 2, pt: 4, color: 'rgb(30, 32, 34)' }}>
         Todos
       </Typography>
 
@@ -38,7 +41,9 @@ function App() {
           alignItems="center">
           <span>{tasks.length - completedTasks.length} items left</span>
           <StateTabs />
-          <Button variant="text" onClick={() => clearTasks(completedTasks)}>Clear completed</Button>
+          <Button variant="text" onClick={() => clearTasks(completedTasks)}>
+            Clear completed
+          </Button>
         </Stack>
       </Container>
     </div>

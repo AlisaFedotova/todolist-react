@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
 
 export interface ITaskState {
   tasks: Array<ITask>;
@@ -12,14 +12,24 @@ export interface ITask {
 }
 
 const initialState: ITaskState = {
-  tasks: [{ title: 'Make a test project', completed: true, id: uuidv4() },
-  { title: 'Cover with unit tests', completed: false, id: uuidv4() },
-  { title: 'Create a Readme file with project description', completed: false, id: uuidv4() },
-  { title: 'Host project on Github Pages site', completed: true, id: uuidv4() }],
+  tasks: [
+    { title: 'Make a test project', completed: true, id: uuidv4() },
+    { title: 'Cover with unit tests', completed: false, id: uuidv4() },
+    {
+      title: 'Create a Readme file with project description',
+      completed: false,
+      id: uuidv4(),
+    },
+    {
+      title: 'Host project on Github Pages site',
+      completed: true,
+      id: uuidv4(),
+    },
+  ],
 };
 
 export const TaskSlice = createSlice({
-  name: "task",
+  name: 'task',
   initialState,
   reducers: {
     addTask: (state, action: PayloadAction<{ title: string }>) => {
@@ -33,7 +43,7 @@ export const TaskSlice = createSlice({
     },
     deleteTask: (state, action: PayloadAction<{ id: string }>) => {
       const findResult = state.tasks.find(
-        (item) => item.id === action.payload.id
+        (item) => item.id === action.payload.id,
       );
 
       if (findResult) {
@@ -43,7 +53,7 @@ export const TaskSlice = createSlice({
     },
     toggleChecked: (state, action: PayloadAction<{ id: string }>) => {
       const findResult = state.tasks.find(
-        (item) => item.id === action.payload.id
+        (item) => item.id === action.payload.id,
       );
 
       if (findResult) {
