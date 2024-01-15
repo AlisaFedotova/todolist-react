@@ -7,21 +7,19 @@ export default function StateTabs() {
   const dispatch = useAppDispatch();
   const tabState: string = useAppSelector((state) => state.stateTabs.state);
 
+  const changeState = (state: string) => {
+    dispatch(setState({ state }));
+  };
+
   return (
     <ToggleButtonGroup color="primary" value={tabState} exclusive>
-      <ToggleButton
-        onClick={() => dispatch(setState({ state: 'all' }))}
-        value="all">
+      <ToggleButton onClick={() => changeState('all')} value="all">
         All
       </ToggleButton>
-      <ToggleButton
-        onClick={() => dispatch(setState({ state: 'active' }))}
-        value="active">
+      <ToggleButton onClick={() => changeState('active')} value="active">
         Active
       </ToggleButton>
-      <ToggleButton
-        onClick={() => dispatch(setState({ state: 'completed' }))}
-        value="completed">
+      <ToggleButton onClick={() => changeState('completed')} value="completed">
         Completed
       </ToggleButton>
     </ToggleButtonGroup>

@@ -1,7 +1,7 @@
 import Task from './Task';
 import { List, Typography } from '@mui/material';
 import { useAppSelector } from '../store/store';
-import { ITask } from '../store/taskSlice';
+import { ITask } from '../models/ITask';
 
 export default function TodoList() {
   const tasks = useAppSelector((state) => state.task.tasks);
@@ -16,7 +16,7 @@ export default function TodoList() {
     return state[tabState];
   });
 
-  const getPalceholder = () => {
+  const getPlaceholder = () => {
     const placeholder: { [key: string]: string } = {
       all: 'Task list is empty',
       active: 'The list of active tasks is empty',
@@ -36,7 +36,7 @@ export default function TodoList() {
       ) : (
         <Typography
           sx={{ py: 4, color: 'rgba(0, 0, 0, 0.6)', textAlign: 'center' }}>
-          {getPalceholder()}
+          {getPlaceholder()}
         </Typography>
       )}
     </>

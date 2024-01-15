@@ -7,11 +7,15 @@ import { addTask } from '../store/taskSlice';
 export default function AddTaskField() {
   const title = React.useRef<string>('');
   const dispatch = useAppDispatch();
-  const [fieldValue, setfieldValue] = React.useState('');
+  const [fieldValue, setFieldValue] = React.useState('');
   const dispatchTask = () => {
     dispatch(addTask({ title: title.current }));
     title.current = '';
-    setfieldValue('');
+    setFieldValue('');
+  };
+  const setValue = (value: string) => {
+    title.current = value;
+    setFieldValue(value);
   };
 
   return (
@@ -31,11 +35,8 @@ export default function AddTaskField() {
         autoFocus={true}
         fullWidth={true}
         value={fieldValue}
-        onChange={(e) => {
-          title.current = e.target.value;
-          setfieldValue(e.target.value);
-        }}
-        onKeyPress={(e) => {
+        onChange={(e) => setValue(e.target.value)}
+        onKeyDown={(e) => {
           e.key === 'Enter' && dispatchTask();
         }}
       />

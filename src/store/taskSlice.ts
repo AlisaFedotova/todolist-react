@@ -1,17 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
+import { ITask } from '../models/ITask';
 
-export interface ITaskState {
-  tasks: Array<ITask>;
-}
-
-export interface ITask {
-  title: string;
-  completed: boolean;
-  id: string;
-}
-
-const initialState: ITaskState = {
+const initialState: { tasks: Array<ITask> } = {
   tasks: [
     { title: 'Make a test project', completed: true, id: uuidv4() },
     { title: 'Cover with unit tests', completed: false, id: uuidv4() },

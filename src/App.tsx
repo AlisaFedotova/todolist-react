@@ -5,7 +5,7 @@ import TodoList from './components/TodoList';
 import StateTabs from './components/StateTabs';
 import AddTaskField from './components/AddTaskField';
 import { useAppSelector } from './store/store';
-import { ITask } from './store/taskSlice';
+import { ITask } from './models/ITask';
 import { useAppDispatch } from './store/store';
 import { deleteTask } from './store/taskSlice';
 
@@ -14,8 +14,7 @@ function App() {
   const completedTasks = tasks.filter((task) => task.completed);
   const dispatch = useAppDispatch();
   const clearTasks = (tasks: ITask[]) => {
-    for (let i = 0; i < tasks.length; i++) {
-      const task = tasks[i];
+    for (const task of tasks) {
       dispatch(deleteTask({ id: task.id }));
     }
   };
